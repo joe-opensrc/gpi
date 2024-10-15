@@ -1,3 +1,4 @@
+@tool
 class_name SettingsRes extends Resource
 
 @export var debug: bool			= false
