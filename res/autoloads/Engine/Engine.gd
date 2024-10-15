@@ -1,8 +1,7 @@
 @tool
 extends Node
 
-@export var debug: bool = false
-@export var resize: bool = true
+@export settings: SettingsRes  # = preload("default_settings.tres")
 
 #func _ready() -> void:
 	#ProjectSettings.set("")
