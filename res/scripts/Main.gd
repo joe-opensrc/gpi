@@ -9,12 +9,13 @@ func _init() -> void:
 func _ready() -> void:
 
 	if Global.resize:
+
 		var window    = get_window()
     var curSize   = window.get_size_with_decorations()
 		var curWidth  = curSize.x
 		var confWidth = ProjectSettings.get_setting_with_override("display/window/size/viewport_width")
 
-		# basic check to see if were not already scaled; avoids recursive application in editor (@tool)
+		# basic check to see if were not already scaled; avoids recursive application in editor
 		if ( curWidth == confWidth ):
 			window.set_size( Vector2( curSize * resScale ) )
 			# project specific remove from template probably ;)
