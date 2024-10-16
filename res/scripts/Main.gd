@@ -4,22 +4,12 @@ extends Node
 @export var resScale: float = 1.0
 
 func _init() -> void:
-	resScale = 1.0
+	pass
 
 func _ready() -> void:
 
-	if Global.resize:
-
-		var window    = get_window()
-    var curSize   = window.get_size_with_decorations()
-		var curWidth  = curSize.x
-		var confWidth = ProjectSettings.get_setting_with_override("display/window/size/viewport_width")
-
-		# basic check to see if were not already scaled; avoids recursive application in editor
-		if ( curWidth == confWidth ):
-			window.set_size( Vector2( curSize * resScale ) )
-			# project specific remove from template probably ;)
-			window.position = Vector2i(600,100.0)
+	if Enjyn.options.debug:
+		Enjyn.rescaleWindow()
 
 func _unhandled_input(event: InputEvent) -> void:
 	#print(event)
