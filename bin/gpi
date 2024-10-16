@@ -3,10 +3,11 @@
 # Godot Project Initialiser
 
 
-projectComponentsDir="$( realpath $( dirname ${0} )/../project.godot.d )" # hackity hackity hack 
+rootDir="$( realpath $( dirname ${0} )/.. )"
+projectComponentsDir="${rootDir}/project.godot.d" # hackity hackity hack 
+resDir="${rootDir}/res"
 
-
-pName="$( gum input --no-show-help --prompt 'Enter A Project Name: ' --placeholder='e.g., Galaxatron' --value=${pName} )"
+pName="${1:-$( gum input --no-show-help --prompt 'Enter A Project Name: ' --placeholder='e.g., Galaxatron' --value=${pName} )}"
 pName="${pName:-$( cat /dev/urandom | tr -dc 'A-Z0-9' | fold -w 9 | head -n 1 )}"
 
 pOutDir="./${pName}"
@@ -15,7 +16,13 @@ pOutFile="${pOutDir}/project.godot"
 mkdir "${pOutDir}"
 
 cat $( find "${projectComponentsDir}" -mindepth 1 -printf '%p\n' | sort -V ) | sed -e "s/<|PNAME|>/${pName}/" >"${pOutFile}"
+rsync -au "${resDir}/" "${pOutDir}/"
+pushd "${pOutDir}"
 
+
+---
+# git init
+# git-config0r
 
 # ---
 # IFS=$':'
