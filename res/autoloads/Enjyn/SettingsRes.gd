@@ -2,6 +2,7 @@
 class_name SettingsRes extends Resource
 
 @export var debug: bool			= false
+@export var rescale: bool   = true
 @export var resScale: float = 1.0
 
 # probably possible to overengineer with setget ;)

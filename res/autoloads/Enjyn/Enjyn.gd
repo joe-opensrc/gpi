@@ -22,7 +22,7 @@ func rescaleWindow():
 
 		# basic check to see if were not already scaled; avoids recursive application in editor
 	if ( curWidth == confWidth ):
-		window.set_size( Vector2( curSize * settings.resScale ) )
+		window.set_size( Vector2( curSize * options.resScale ) )
 
 		# project specific remove from template probably ;)
 		window.position = Vector2i(600,100.0)

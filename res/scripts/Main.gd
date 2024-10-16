@@ -1,14 +1,11 @@
 extends Node
 
-@export var debug: bool = false
-@export var resScale: float = 1.0
-
 func _init() -> void:
 	pass
 
 func _ready() -> void:
 
-	if Enjyn.options.debug:
+	if Enjyn.options.rescale:
 		Enjyn.rescaleWindow()
 
 func _unhandled_input(event: InputEvent) -> void:
