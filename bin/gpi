@@ -17,10 +17,11 @@ mkdir "${pOutDir}"
 
 cat $( find "${projectComponentsDir}" -mindepth 1 -printf '%p\n' | sort -V ) | sed -e "s/<|PNAME|>/${pName}/" >"${pOutFile}"
 rsync -au "${resDir}/" "${pOutDir}/"
-pushd "${pOutDir}"
+# pushd "${pOutDir}"
 
 
----
+
+# ---
 # git init
 # git-config0r
 
