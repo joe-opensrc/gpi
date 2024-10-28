@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c43yu2c1x6pwu"]
+
+[node name="SceneTransition" type="CanvasLayer"]
+
+[node name="UIX" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Realm2D" type="Node2D" parent="."]

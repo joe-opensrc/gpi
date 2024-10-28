@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhlfi1lvl8m3h"]
+
+[ext_resource type="Script" path="res://orig.gd" id="1_s08wk"]
+[ext_resource type="Texture2D" uid="uid://btd3xwatftd2u" path="res://assets/icon.svg" id="2_mxgb7"]
+
+[node name="Orig" type="Node2D"]
+script = ExtResource("1_s08wk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mxgb7")
+flip_v = true

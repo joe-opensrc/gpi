@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://beumkgly17lr1"]
+
+[ext_resource type="Script" path="res://autoloads/Enjyn/Enjyn.gd" id="1_ydt33"]
+[ext_resource type="Script" path="res://autoloads/Enjyn/SettingsRes.gd" id="2_5illr"]
+
+[sub_resource type="Resource" id="Resource_kw6an"]
+script = ExtResource("2_5illr")
+debug = false
+rescale = true
+resScale = 0.6
+stretchMode = 1
+W = 1280
+H = 720
+
+[node name="Enjyn" type="Node"]
+script = ExtResource("1_ydt33")
+options = SubResource("Resource_kw6an")

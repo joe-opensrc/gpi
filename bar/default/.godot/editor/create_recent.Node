@@ -1,0 +1,15 @@
+AspectRatioContainer
+Node2D
+Sprite2D
+ParallaxLayer
+ParallaxBackground
+TextureRect
+CanvasLayer
+MeshInstance2D
+GPUParticles2D
+Node
+Camera2D
+ResourcePreloader
+SubViewportContainer
+SubViewport
+Node3D

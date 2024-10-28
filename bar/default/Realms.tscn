@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://crabgb4r21neo"]
+
+[ext_resource type="Script" path="res://Realms.gd" id="1_gikei"]
+[ext_resource type="Texture2D" uid="uid://btd3xwatftd2u" path="res://assets/icon.svg" id="2_1ohb4"]
+
+[node name="Realms" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_gikei")
+
+[node name="2D" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="2D"]
+
+[node name="Lvl1" type="Node2D" parent="2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="2D/Lvl1"]
+texture = ExtResource("2_1ohb4")
+
+[node name="UIX" type="CanvasLayer" parent="."]
+layer = 9
+follow_viewport_enabled = true
+
+[node name="PauseParallax" type="ParallaxBackground" parent="UIX"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="UIX/PauseParallax"]
+
+[node name="BG" type="Sprite2D" parent="UIX/PauseParallax/ParallaxLayer"]
+scale = Vector2(6.34375, 3.42187)
+texture = ExtResource("2_1ohb4")
+
+[node name="Pause" type="AspectRatioContainer" parent="UIX"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
