@@ -16,7 +16,7 @@ func _init() -> void:
 		options = SettingsRes.new()
 
 func _ready() -> void:
-	mangleWindow()
+	self.mangleWindow()
 
 func mangleWindow():
 
