@@ -1,10 +1,3 @@
-
-
-
-
-
-
----
 ## vague idea:
 # not quite sure what this is...idea faded
 #    - set_meta on nodes registered to group
