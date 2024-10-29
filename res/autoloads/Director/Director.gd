@@ -1,51 +1,30 @@
 @tool
 extends Node
 
-###
-# A class to manage scene transitions and Other Things™ 
-# Might get split up later into Engine/Scene and Agents/AI, etc.
+# SHOULD hold PlayerState class
+# i.e., if Director.PlayerState.GOD_MODE == True, 
+					
 
+# groups:
+#		- interestedInPlayer
 
-# preLoadScene()
-# transitionNext()
-# transitionType() 
+signal req_scene_transition( c: Node, r: Variant )
 
-# class SceneTransition:
-# 	init( ):
+# problem will be:
+# name of fs resource and scenetree name; if that makes sense ;)
+@export var loader: ResourcePreloader
 
-# 
-#                root
-#	     _________ /  \ _______________
-#	    /         /    \         \     \
-#	 Enjyn    SigBus  Director  UIX  Realm2D
+func _ready():
+	self.req_scene_transition.connect(doSceneTransition)
+	#self.child_entered_tree.connect(_on_child_entered_tree)
+	
+	# testing:
+	#doSceneTransition( Next1 )
+ 
+#func _on_child_entered_tree( n: Node ):
+	#node.req_scene_transition.connect()
 
+func doSceneTransition( curScene: Node, reqScene: String ):
 
-
-#      ST:		
-#	   Realm2D -- Enjyn
-#		   / \
-#		  .   x       y   -- pla 
-#    /   / \     / \
-#   .		.   .   .   .
-#                  / \
-#									.   . 
-
-
-	func addSceneTransition( self, prev, next, type ) 
-	signal reqSceneTransition( self, SceneTransition.Next ) => .connect( doSceneTransition )
-	func doSceneTransition( currentScene, dir: SceneTransitionDirection ):
-		transition_next
-
-	Enjyn.doSceneTransition(  )
-
-  SceneTransition:
-		prev: null
-		next: Node2D
-		type: Enum: shader|anim|
-		strict: false # pointers must be same type
-		next|prev():
-			if next|prev == null:	restart same scene
-			
-		- x: 
-
-		SceneTransition
+	# some director logic...then Enjyn transition...
+	Enjyn.doSceneTransition( curScene, reqScene )
