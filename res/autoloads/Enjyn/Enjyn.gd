@@ -8,6 +8,7 @@ const ONEf = 1.0
 @onready var window = get_window()
 var projectWindowSizeMode =	ProjectSettings.get_setting("display/window/size/mode")
 
+@export var loader: ResourcePreloader
 
 func _ready() -> void:
 	mangleWindow()
