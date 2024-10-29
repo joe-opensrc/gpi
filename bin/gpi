@@ -14,6 +14,12 @@ pName="${pName:-$( cat /dev/urandom | tr -dc 'A-Z0-9' | fold -w 9 | head -n 1 )}
 pOutDir="./${pName}"
 pOutFile="${pOutDir}/project.godot"
 
+if [[ -d "${pOutDir}" ]]
+then
+  echo "Cowardly refusing to modify existing directory!: ${pOutDir}" >&2
+  exit 1
+fi
+
 mkdir "${pOutDir}"
 
 cat $( find "${projectComponentsDir}" -mindepth 1 -printf '%p\n' | sort -V ) | sed -e "s/<|PNAME|>/${pName}/" >"${pOutFile}"
