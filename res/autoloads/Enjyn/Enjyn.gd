@@ -6,9 +6,14 @@ const ONEf = 1.0
 
 @export  var options: SettingsRes  # = preload("default_settings.tres")
 @onready var window = get_window()
+
 var projectWindowSizeMode =	ProjectSettings.get_setting("display/window/size/mode")
 
 @export var loader: ResourcePreloader
+
+func _init() -> void:
+	if not options:
+		options = SettingsRes.new()
 
 func _ready() -> void:
 	mangleWindow()
