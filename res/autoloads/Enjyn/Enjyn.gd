@@ -45,7 +45,7 @@ func getWindowCenter():
 func _unhandled_input(event: InputEvent) -> void:
 	#self.getWindowCenter()
 	#print(event)
-	if event.is_action_released("req_quit"):
+	if event.is_action_released("user_quit"):
 		engine_teardown()
 		
 func engine_teardown() -> void:
