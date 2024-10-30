@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw4j600lnitm1"]
-
-[ext_resource type="Script" path="res://autoloads/Director/Director.gd" id="1_4okkt"]
-
-[node name="Director" type="Node"]
-script = ExtResource("1_4okkt")
