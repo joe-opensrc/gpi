@@ -18,6 +18,41 @@ func _init() -> void:
 func _ready() -> void:
 	self.mangleWindow()
 
+func sceneLoad( path: StringName ) -> Resource:
+	if not ResourceLoader.has_cached( path ):
+		await ResourceLoader.load_threaded_request( path )
+	return ResourceLoader.load_threaded_get( path )
+
+func sceneInstantiate( path: StringName ) -> Object:
+	var si = await sceneLoad( path )
+	return si.instantiate()
+	
+func getNode( n : Variant ):
+	if n is String:
+		#var nodePath: NodePath = NodePath( n )
+		return get_node( n )
+	elif n is Node:
+		return n
+	else:
+		assert(false, "not cool type: %s" % type_string(typeof(n)) )
+	
+	
+func sceneAdd( n: Variant, path: StringName ) -> NodePath:
+	var node: Node = getNode( n )
+	var sceneInst: Node = await sceneInstantiate( path )
+	node.add_child.call_deferred( sceneInst, true )
+	return str( sceneInst.get_path() ).simplify_path() 
+
+func sceneRemove( p: String ):
+	var n = get_node(p)
+	n.get_parent().remove_child(n)
+	
+func sceneReplace( c: Variant, n: Variant, opts: Dictionary = {} ):
+	var cur: Node = getNode( c )
+
+func getNodePath( node: Node ):
+	return node.get_path()
+
 func mangleWindow():
 
 	if options.rescale:
