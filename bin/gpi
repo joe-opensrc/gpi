@@ -35,6 +35,7 @@ rsync -au "${dotDir}/" "${pOutDir}/.godot"
 # ---
 # git init
 # git-config0r
+rsync -au "${rootDir}/.gitignore" "${pOutDir}/"
 
 # ---
 # IFS=$':'
