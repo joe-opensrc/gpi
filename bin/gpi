@@ -26,8 +26,7 @@ mkdir -p "${pOutDir}"
 
 cat $( find "${projectComponentsDir}" -mindepth 1 -printf '%p\n' | sort -V ) | sed -e "s/<|PNAME|>/${pName}/" >"${pOutFile}"
 
-rsync -au "${resDir}/" "${pOutDir}/"
-rsync -au "${dotDir}/" "${pOutDir}/"
+rsync -au "${resDir}/" "${dotDir}/" "${pOutDir}/"
 # pushd "${pOutDir}"
 
 
