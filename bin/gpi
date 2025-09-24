@@ -6,7 +6,7 @@
 rootDir="$( realpath $( dirname ${0} )/.. )"
 projectComponentsDir="${rootDir}/project.godot.d" # hackity hackity hack 
 resDir="${rootDir}/res"
-dotDir="${rootDir}/dotgodot.d"
+dotDir="${rootDir}/dots"
 
 pName="${1:-$( gum input --no-show-help --prompt 'Enter A Project Name: ' --placeholder='e.g., Galaxatron' --value=${pName} )}"
 pName="${pName:-$( cat /dev/urandom | tr -dc 'A-Z0-9' | fold -w 9 | head -n 1 )}"
@@ -27,7 +27,7 @@ mkdir -p "${pOutDir}"
 cat $( find "${projectComponentsDir}" -mindepth 1 -printf '%p\n' | sort -V ) | sed -e "s/<|PNAME|>/${pName}/" >"${pOutFile}"
 
 rsync -au "${resDir}/" "${pOutDir}/"
-rsync -au "${dotDir}/" "${pOutDir}/.godot"
+rsync -au "${dotDir}/" "${pOutDir}/"
 # pushd "${pOutDir}"
 
 
@@ -35,7 +35,7 @@ rsync -au "${dotDir}/" "${pOutDir}/.godot"
 # ---
 # git init
 # git-config0r
-rsync -au "${rootDir}/.gitignore" "${pOutDir}/"
+# rsync -au "${rootDir}/.gitignore" "${pOutDir}/"
 
 # ---
 # IFS=$':'
