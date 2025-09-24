@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Godot Project Initialiser
+# Godot Project Initializer
 rootDir="$( realpath $( dirname ${0} )/.. )"
 
 projectComponentsDir="${rootDir}/project.godot.d" # hackity hackity hack 
