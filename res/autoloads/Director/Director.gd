@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-# SHOULD hold PlayerState class
+# SHOULD hold PlayerState class (or make separate?)
 # i.e., if Director.PlayerState.GOD_MODE == True, 
 					
 # groups:
