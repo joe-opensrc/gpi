@@ -31,7 +31,9 @@ pOutFile="${pOutDir}/project.godot"
 # ensure the output directory exists
 mkdir -p "${pOutDir}"
 
-cat $( find "${projectComponentsDir}" -mindepth 1 -printf '%p\n' | sort -V ) | sed -e "s/<|PNAME|>/${pName}/" >"${pOutFile}"
+# set the project name and generate the config file
+# bash glob sorts alpha-numerically...
+sed -e "s/<|PNAME|>/${pName}/" "${projectComponentsDir}"/*.ini >"${pOutFile}" 
 
 # copy all other files into place
 rsync -au "${resDir}/" "${dotDir}/" "${pOutDir}/"
