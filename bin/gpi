@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Godot Project Initializer
+# Godot Project Initializer | Guppy :)
 #
 # look for files and paths starting here:
 rootDir="$( realpath $( dirname ${0} )/.. )"
