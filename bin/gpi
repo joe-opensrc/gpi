@@ -1,29 +1,37 @@
 #!/bin/bash
 
 # Godot Project Initializer
+#
+# look for files and paths starting here:
 rootDir="$( realpath $( dirname ${0} )/.. )"
 
+# snippets / templates from which to build a full project config file
 projectComponentsDir="${rootDir}/project.godot.d"
 
+# "skeleton" resources + hidden dirs
 resDir="${rootDir}/res"
 dotDir="${rootDir}/dots"
 
+# use supplied project name, or ask the user to supply one; otherwise generate a random one
 pName="${1:-$( gum input --no-show-help --prompt 'Enter A Project Name: ' --placeholder='e.g., Galaxatron' --value=${pName} )}"
 pName="${pName:-$( cat /dev/urandom | tr -dc 'A-Z0-9' | fold -w 9 | head -n 1 )}"
 
+# set toplvl dir name and check were not trying to overwrite an existing project 
 pOutDir="./${pName}"
-
 if [[ -d "${pOutDir}" ]]
 then
   echo "Cowardly refusing to modify existing directory!: ${pOutDir}" >&2
   exit 1
 fi
 
+# set the actual output dir + project file name
 pOutDir="${pOutDir}/godot"
 pOutFile="${pOutDir}/project.godot"
 
+# ensure the output directory exists
 mkdir -p "${pOutDir}"
 
 cat $( find "${projectComponentsDir}" -mindepth 1 -printf '%p\n' | sort -V ) | sed -e "s/<|PNAME|>/${pName}/" >"${pOutFile}"
 
+# copy all other files into place
 rsync -au "${resDir}/" "${dotDir}/" "${pOutDir}/"
