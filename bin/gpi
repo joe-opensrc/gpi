@@ -39,3 +39,4 @@ sed -e "s/<|PNAME|>/${pName}/" "${projectComponentsDir}"/*.ini >"${pOutFile}"
 rsync -au "${resDir}/" "${dotDir}/" "${pOutDir}/"
 
 echo -ne "\n -- Created Godot Project: ** ${pName} **\n\n"
+tree -L 2 ${pOutDir}
