@@ -3,7 +3,7 @@
 # Godot Project Initializer
 rootDir="$( realpath $( dirname ${0} )/.. )"
 
-projectComponentsDir="${rootDir}/project.godot.d" # hackity hackity hack 
+projectComponentsDir="${rootDir}/project.godot.d"
 
 resDir="${rootDir}/res"
 dotDir="${rootDir}/dots"
